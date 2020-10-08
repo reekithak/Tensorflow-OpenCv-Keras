@@ -1,0 +1,9 @@
+# cook your dish here
+import math
+times = int(input())
+for i in range(times):
+    n , k = map(int, input().split())
+    arr = [int(x) for x in input().split()]
+    sum_arr = sum(arr)
+    print(math.floor(sum_arr/k+1))
+     
