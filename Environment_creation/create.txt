@@ -1,0 +1,4 @@
+conda create -n new pip python
+
+activate new
+python mnist_mlp.py
