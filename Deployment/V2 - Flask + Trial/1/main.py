@@ -1,7 +1,7 @@
 
 import numpy as np
-import flask 
-import request , jsonify , render_template
+#import flask 
+from flask import Flask , request , jsonify , render_template
 import pickle
 
 
