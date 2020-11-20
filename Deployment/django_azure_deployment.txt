@@ -2,3 +2,7 @@ Youtube : - https://www.youtube.com/watch?v=66IeCXomWqk
 
 
 Drive : - https://drive.google.com/file/d/1-c6iFmlF1avcURg4h2IuEQPXiqqDCltB/view?usp=sharing   (reekithak2@gmail.com) : Request access
+
+
+
+tutorial reference :- https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04#create-a-gunicorn-systemd-service-file
