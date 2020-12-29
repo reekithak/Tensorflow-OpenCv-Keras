@@ -1,0 +1,12 @@
+Just image : 
+
+python faceimg.py --image profile.jpg --prototxt deploy.prototxt.txt --model res10_300x300_ssd_iter_140000.caffemodel 
+python faceimg.py --image iron_chic.jpg --prototxt deploy.prototxt.txt --model res10_300x300_ssd_iter_140000.caffemodel 
+
+
+
+
+Video:
+
+
+ python facevid.py--prototxt deploy.prototxt.txt --model res10_300x300_ssd_iter_140000.caffemodel
