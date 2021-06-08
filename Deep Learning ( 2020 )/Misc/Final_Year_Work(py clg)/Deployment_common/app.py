@@ -3,7 +3,7 @@ from flask_uploads import UploadSet, configure_uploads, IMAGES
 from model import predict
 import tensorflow as tf
 from tensorflow import keras
-
+from tensorflow.keras.preprocessing.image import load_img
 
 app = Flask(__name__)
 
@@ -26,9 +26,9 @@ def upload():
     if request.method == 'POST' and  'photo' in request.files:
         filename = photos.save(request.files['photo'])
 
-        local_img = keras.preprocessing.image.load_img('./static/img/'+filename,target_size=(150,150))
+        image = load_img('./static/img/'+filename,target_size=(224,224))
 
-        prediction = predict(local_img)
+        prediction = predict(image)
     
 
         return prediction

@@ -4,10 +4,13 @@ import numpy as np
 from flask import Flask
 from tensorflow import keras
 from tensorflow.keras.preprocessing import image
+import tensorflow.keras
+from PIL import Image, ImageOps
+import numpy as np
 
+np.set_printoptions(suppress=True)
+model = tensorflow.keras.models.load_model("Models\keras_model.h5")
 
-
-model = keras.models.load_model("Models\model_weights.h5")
 classes = ['diseased cotton leaf',
          'diseased cotton plant',
          'fresh cotton leaf',
@@ -28,15 +31,38 @@ classes = ['diseased cotton leaf',
          'Tomato___Tomato_mosaic_virus',
          'Tomato___Tomato_Yellow_Leaf_Curl_Virus'
          ]
+labels = ['Class 1',
+         'Class 2',
+         'Class 3',
+         'Class 4',
+         'Class 5',
+         'Class 6',
+         'Class 7',
+         'Class 8',
+         'Class 9',
+         'Class 10',
+         'Class 11',
+         'Class 12',
+         'Class 13',
+         'Class 14',
+         'Class 15',
+         'Class 16',
+         'Class 17',
+         'Class 18',
+         'Class 19'
+         ]
 
-
-def preprocess_image(local_img,target_size=(150, 150)):
-    local_img = image.img_to_array(local_img)
-    local_img = tf.image.rgb_to_grayscale(local_img)
-    local_img = np.expand_dims(local_img, axis=0)
-    local_img = local_img/255.0
-
-    return local_img
+def preprocess_image(image,target_size=(224, 224)):
+    data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+    
+    if image.mode != "RGB":
+        image = image.convert("RGB")
+    image = ImageOps.fit(image, (224,224), Image.ANTIALIAS)
+    image_array = np.asarray(image)
+    image = (image_array.astype(np.float32) / 127.0) - 1
+    data[0] = image 
+    
+    return data
 
 print("keras Model Loading")
 
